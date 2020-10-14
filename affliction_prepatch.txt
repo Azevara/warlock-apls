@@ -38,6 +38,7 @@ actions+=/vile_taint,if=soul_shard>1
 actions+=/siphon_life,if=refreshable
 actions+=/agony,if=refreshable
 actions+=/unstable_affliction,if=refreshable
+actions+=/unstable_affliction,if=azerite.cascading_calamity.enabled&buff.cascading_calamity.remains<3
 actions+=/corruption,if=refreshable
 actions+=/haunt
 actions+=/call_action_list,name=darkglare_prep,if=cooldown.summon_darkglare.remains<2&(dot.phantom_singularity.remains>2|!talent.phantom_singularity.enabled)
