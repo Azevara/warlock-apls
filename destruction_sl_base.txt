@@ -1,17 +1,17 @@
 warlock="Prepatch_Warlock_Destruction"
 source=default
 spec=destruction
-level=50
-race=troll
+level=60
+race=none
 role=spell
 position=ranged_back
 talents=0000000
 
 # Default consumables
-potion=disabled
-flask=disabled
-food=disabled
-augmentation=disabled
+potion=unbridled_fury
+flask=greater_flask_of_endless_fathoms
+food=famine_evaluator_and_snack_table
+augmentation=battle_scarred
 
 # This default action priority list is automatically created based on your character.
 # It is a attempt to provide you with a action list that is both simple and practicable,
@@ -26,7 +26,6 @@ actions.precombat+=/augmentation
 actions.precombat+=/summon_pet
 actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice.enabled
 actions.precombat+=/snapshot_stats
-actions.precombat+=/potion
 actions.precombat+=/soul_fire
 actions.precombat+=/incinerate,if=!talent.soul_fire.enabled
 
