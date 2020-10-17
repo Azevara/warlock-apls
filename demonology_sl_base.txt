@@ -31,7 +31,6 @@ actions.precombat+=/variable,name=tyrant_ready,value=0
 
 # Executed every time the actor is available.
 actions=call_action_list,name=off_gcd
-actions+=/call_action_list,name=essences
 actions+=/run_action_list,name=tyrant_prep,if=cooldown.summon_demonic_tyrant.remains<5&!variable.tyrant_ready
 actions+=/run_action_list,name=summon_tyrant,if=variable.tyrant_ready
 actions+=/summon_vilefiend,if=cooldown.summon_demonic_tyrant.remains>40|time_to_die<cooldown.summon_demonic_tyrant.remains+25
@@ -47,17 +46,6 @@ actions+=/use_items
 actions+=/power_siphon,if=buff.wild_imps.stack>1&buff.demonic_core.stack<3
 actions+=/soul_strike
 actions+=/shadow_bolt
-
-actions.essences=worldvein_resonance
-actions.essences+=/memory_of_lucid_dreams
-actions.essences+=/blood_of_the_enemy
-actions.essences+=/guardian_of_azeroth
-actions.essences+=/ripple_in_space
-actions.essences+=/focused_azerite_beam
-actions.essences+=/purifying_blast
-actions.essences+=/reaping_flames
-actions.essences+=/concentrated_flame
-actions.essences+=/the_unbound_force,if=buff.reckless_force.remains
 
 actions.off_gcd=berserking,if=pet.demonic_tyrant.active
 actions.off_gcd+=/potion,if=buff.berserking.up|pet.demonic_tyrant.active&!race.troll
