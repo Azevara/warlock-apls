@@ -49,7 +49,7 @@ actions+=/implosion,if=azerite.explosive_potential.rank>1&buff.explosive_potenti
 actions+=/soul_strike
 actions+=/shadow_bolt
 
-actions.essences=worldvein_resonance
+actions.essences=worldvein_resonance,if=cooldown.summon_demonic_tyrant.remains>45
 actions.essences+=/memory_of_lucid_dreams
 actions.essences+=/blood_of_the_enemy
 actions.essences+=/guardian_of_azeroth
