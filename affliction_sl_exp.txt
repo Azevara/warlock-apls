@@ -13,17 +13,16 @@ actions.precombat+=/shadow_bolt,if=!talent.haunt.enabled&spell_targets.seed_of_c
 
 actions=phantom_singularity
 actions+=/vile_taint,if=soul_shard>1
+actions+=/seed_of_corruption,if=active_enemies>1&talent.sow_the_seeds.enabled&dot.corruption.refreshable&!dot.seed_of_corruption.ticking&!in_flight
 actions+=/agony,if=refreshable
 actions+=/agony,cycle_targets=1,if=active_enemies>1,target_if=!dot.agony.ticking|refreshable
 actions+=/siphon_life,if=refreshable
 actions+=/unstable_affliction,if=refreshable
-actions+=/corruption,if=refreshable
+actions+=/corruption,if=(active_enemies=1|!talent.sow_the_seeds.enabled)&refreshable
 actions+=/haunt
-
 actions+=/malefic_rapture,if=soul_shard>4
-
 actions+=/siphon_life,cycle_targets=1,if=active_enemies>1,target_if=dot.siphon_life.remains<3
-actions+=/corruption,cycle_targets=1,if=active_enemies>1,target_if=dot.corruption.remains<3
+actions+=/corruption,cycle_targets=1,if=active_enemies>1&!talent.sow_the_seeds.enabled,target_if=dot.corruption.remains<3
 actions+=/call_action_list,name=darkglare_prep,if=cooldown.summon_darkglare.remains<2&(dot.phantom_singularity.remains>2|!talent.phantom_singularity.enabled)
 actions+=/dark_soul,if=cooldown.summon_darkglare.remains>time_to_die
 actions+=/use_items
