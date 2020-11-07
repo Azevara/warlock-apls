@@ -5,24 +5,24 @@ actions.precombat+=/augmentation
 actions.precombat+=/summon_pet
 actions.precombat+=/grimoire_of_sacrifice,if=talent.grimoire_of_sacrifice.enabled
 actions.precombat+=/snapshot_stats
-actions.precombat+=/seed_of_corruption,if=spell_targets.seed_of_corruption_aoe>=3
+actions.precombat+=/seed_of_corruption,if=active_enemies>2&!talent.vile_taint.enabled
 actions.precombat+=/haunt
-actions.precombat+=/shadow_bolt,if=!talent.haunt.enabled&spell_targets.seed_of_corruption_aoe<3
+actions.precombat+=/shadow_bolt,if=active_enemies<3|!talent.vile_taint.enabled
 
 # Executed every time the actor is available.
-
 actions=phantom_singularity
-actions+=/vile_taint,if=soul_shard>1
-actions+=/seed_of_corruption,if=active_enemies>1&talent.sow_the_seeds.enabled&dot.corruption.refreshable&!dot.seed_of_corruption.ticking&!in_flight
 actions+=/agony,if=refreshable
-actions+=/agony,cycle_targets=1,if=active_enemies>1,target_if=!dot.agony.ticking|refreshable
+actions+=/agony,cycle_targets=1,if=active_enemies>1,target_if=refreshable
+actions+=/call_action_list,name=darkglare_prep,if=active_enemies>2&(dot.phantom_singularity.ticking|!talent.phantom_singularity.enabled)
+actions+=/seed_of_corruption,if=active_enemies>2&!talent.vile_taint.enabled&(!talent.writhe_in_agony.enabled|talent.sow_the_seeds.enabled)&!dot.seed_of_corruption.ticking&!in_flight&dot.corruption.refreshable
+actions+=/vile_taint,if=(soul_shard>1|active_enemies>2)&cooldown.summon_darkglare.remains>12
 actions+=/siphon_life,if=refreshable
 actions+=/unstable_affliction,if=refreshable
-actions+=/corruption,if=(active_enemies=1|!talent.sow_the_seeds.enabled)&refreshable
+actions+=/corruption,if=(active_enemies<3|talent.vile_taint.enabled|talent.writhe_in_agony.enabled&!talent.sow_the_seeds.enabled)&refreshable
 actions+=/haunt
 actions+=/malefic_rapture,if=soul_shard>4
 actions+=/siphon_life,cycle_targets=1,if=active_enemies>1,target_if=dot.siphon_life.remains<3
-actions+=/corruption,cycle_targets=1,if=active_enemies>1&!talent.sow_the_seeds.enabled,target_if=dot.corruption.remains<3
+actions+=/corruption,cycle_targets=1,if=active_enemies<3|talent.vile_taint.enabled|talent.writhe_in_agony.enabled&!talent.sow_the_seeds.enabled,target_if=dot.corruption.remains<3
 actions+=/call_action_list,name=darkglare_prep,if=cooldown.summon_darkglare.remains<2&(dot.phantom_singularity.remains>2|!talent.phantom_singularity.enabled)
 actions+=/dark_soul,if=cooldown.summon_darkglare.remains>time_to_die
 actions+=/use_items
